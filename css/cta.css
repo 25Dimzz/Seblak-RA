@@ -1,0 +1,5 @@
+/* cta: section ajakan pesan */
+.cta .loc{justify-content:center;max-width:36ch;margin:0 auto 1.5rem;text-align:left;font-size:1.1rem}
+.cta .acts{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.cta{background:var(--kuah);color:var(--tua);text-align:center;padding-bottom:6rem}
+.cta h2{font-size:clamp(2.6rem,12vw,9rem)}

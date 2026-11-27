@@ -1,0 +1,4 @@
+/* nav: navigasi atas */
+nav{position:fixed;top:calc(.6rem + env(safe-area-inset-top,0px));left:var(--px);right:var(--px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:.4rem .4rem .4rem 1.2rem;background:var(--tua);color:var(--putih);border:1px solid rgba(255,250,240,.22);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+nav .logo{font:800 1.05rem var(--d);text-decoration:none;letter-spacing:-.02em}
+nav a.go{background:var(--krupuk);color:var(--tua);font-weight:600;font-size:.95rem;text-decoration:none;padding:.5rem 1.1rem;border-radius:999px}

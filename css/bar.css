@@ -1,0 +1,7 @@
+/* bar: bar pesanan melayang di bawah */
+#bar{position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;transform:translate(-50%,250%);background:var(--krupuk);color:var(--tua);border-radius:999px;padding:.45rem .45rem .45rem 1.4rem;display:flex;align-items:center;gap:1rem;font-weight:600;box-shadow:0 12px 40px rgba(0,0,0,.45);width:max-content;max-width:calc(100vw - 1.5rem)}
+#bar .btn{padding:.75rem 1.2rem;background:var(--daun)}
+#bar .btn:hover{background:#245f3c}
+#bar .btn{white-space:nowrap}
+#sum{min-width:0;line-height:1.2}
+@media(max-width:380px){#bar{gap:.6rem;padding-left:1rem;font-size:.9rem}#bar .btn{padding:.7rem 1rem;font-size:.9rem}}

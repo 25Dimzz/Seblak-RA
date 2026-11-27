@@ -1,0 +1,7 @@
+/* level: pilihan level pedas */
+.level{background:var(--daun)}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{font:600 .95rem var(--b);color:var(--putih);background:transparent;border:2px solid var(--putih);border-radius:999px;padding:.5rem 1rem;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.pill:hover{transform:translateY(-3px)}
+.pill[aria-pressed=true]{background:var(--krupuk);color:var(--tua);border-color:var(--krupuk)}
+.lvdesc{margin-top:1rem;font-size:1.1rem;min-height:1.6em;max-width:40ch}

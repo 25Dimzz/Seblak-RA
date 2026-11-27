@@ -1,0 +1,10 @@
+/* cart: daftar pesanan */
+.cartbox{margin-top:2.5rem}
+.cartbox h3{font-size:1.8rem;margin-bottom:1rem}
+#cart{list-style:none;border:1px solid rgba(255,250,240,.25)}
+.cl{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.2rem}
+.cl+.cl{border-top:1px solid rgba(255,250,240,.25)}
+.cl small{display:block;opacity:.8;line-height:1.35}
+.cr{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;font:800 1.1rem var(--d);white-space:nowrap}
+.cl>div:first-child{min-width:0;overflow-wrap:anywhere}
+@media(max-width:380px){.cl{padding:.9rem 1rem}}

@@ -1,0 +1,4 @@
+/* about: section tentang */
+.about{background:var(--krupuk);color:var(--tua)}
+.about h2{font-size:clamp(2.2rem,8vw,6rem);max-width:16ch}
+.about p{max-width:46ch;margin:1.5rem 0 0 auto;font-size:1.1rem}

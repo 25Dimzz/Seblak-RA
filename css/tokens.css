@@ -1,0 +1,2 @@
+/* tokens: warna, font, spasi (ubah tema di sini) */
+:root{--kuah:#ff5b1f;--tua:#34090a;--krupuk:#ffe7a3;--daun:#2f7d4e;--putih:#fffaf0;--d:'Bricolage Grotesque',system-ui,sans-serif;--b:'Figtree',system-ui,sans-serif;--px:clamp(1rem,4vw,3rem)}

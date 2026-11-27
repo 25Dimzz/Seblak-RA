@@ -1,0 +1,9 @@
+/* buttons: tombol .btn dan variannya */
+.btn{display:inline-block;background:var(--tua);color:var(--putih);font:600 1rem var(--b);padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:scale(1.05);background:#000}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:disabled:hover,.btn.full:hover{transform:none}
+.btn.full{width:100%;display:flex;justify-content:space-between;gap:.75rem}
+.btn.alt{background:transparent;color:var(--tua);border:2px solid var(--tua)}
+.btn.alt:hover{background:var(--tua);color:var(--putih)}
+.btn.alt:disabled:hover{background:transparent;color:var(--tua)}

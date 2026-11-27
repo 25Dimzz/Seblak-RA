@@ -1,0 +1,16 @@
+/* base: reset, tipografi, helper animasi teks, anti-copy */
+.js [data-split],.js [data-fade]{visibility:hidden}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:manipulation}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font:400 1rem/1.55 var(--b);background:var(--tua);color:var(--putih);overflow-x:hidden}
+#navbar-iframe,.navbar,.hidden-blog{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--krupuk);outline-offset:3px}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.1em .06em .16em;margin:-.1em -.06em -.16em}
+.w .i{display:inline-block;will-change:transform}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:1;letter-spacing:-.03em}
+section{padding:clamp(3rem,8vw,6rem) var(--px);position:relative}
+.level h2,.menu h2,.cta h2,.cara h2{font-size:clamp(2.2rem,8vw,5.5rem);margin-bottom:1.5rem}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}

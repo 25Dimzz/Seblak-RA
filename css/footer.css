@@ -1,0 +1,2 @@
+/* footer: footer */
+footer{background:#000;color:var(--putih);padding:1.25rem var(--px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;font-size:.9rem}

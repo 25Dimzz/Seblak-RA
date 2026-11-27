@@ -1,0 +1,5 @@
+/* cara: section cara pesan */
+.cara{background:var(--krupuk);color:var(--tua)}
+.cara ol{list-style:none;counter-reset:s;display:grid;gap:.9rem;max-width:56rem}
+.cara li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:.8rem;font-size:1.1rem;border-top:2px solid var(--tua);padding-top:.8rem}
+.cara li::before{content:counter(s);font:800 2.2rem/1 var(--d)}
