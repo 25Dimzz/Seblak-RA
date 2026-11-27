@@ -1,3 +1,4 @@
 /* loc: blok alamat (varian ada di hero/cta) */
 .loc{display:flex;gap:.6rem;align-items:flex-start;font-style:normal;font-weight:600;line-height:1.35}
 .loc svg{flex:none;margin-top:.15rem}
+.loc .addr{min-width:0;overflow-wrap:anywhere;text-wrap:pretty}

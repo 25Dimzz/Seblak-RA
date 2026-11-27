@@ -1,9 +1,37 @@
 /* hero: bagian paling atas */
-.hero{min-height:min(88vh,720px);min-height:min(88svh,720px);background:var(--kuah);color:var(--tua);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(5.5rem + env(safe-area-inset-top,0px)) var(--px) clamp(1.5rem,4vw,3rem);overflow:hidden}
+.hero{--c2:26rem;--gap:3rem;min-height:min(88vh,720px);min-height:min(88svh,720px);background:var(--kuah);color:var(--tua);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(5.5rem + env(safe-area-inset-top,0px)) var(--px) clamp(1.5rem,4vw,3rem);overflow:hidden}
 .hero h1{font-size:clamp(3rem,min(28vw,32vh),22rem);font-size:clamp(3rem,min(28vw,32svh),22rem);margin-left:-.02em}
 .hero h1.sub{color:var(--putih)}
 .hero .row{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;justify-content:space-between;align-items:end;margin-top:1.25rem}
 .hero p{max-width:30ch;font-size:1.15rem;font-weight:600;line-height:1.4}
-@media(min-width:1024px){.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-content:end;column-gap:3rem}.hero h1{grid-column:1}.hero .row{grid-column:2;grid-row:1/span 2;flex-direction:column;align-items:flex-start;justify-content:flex-end;margin:0 0 1rem}}
 .hero .loc{flex-basis:100%;max-width:32rem;background:rgba(52,9,10,.1);border-radius:1rem;padding:.8rem 1rem}
-@media(min-width:1024px){.hero h1{font-size:clamp(4rem,min(32vh,calc((100vw - 2*var(--px) - 29rem)/3.3)),22rem);font-size:clamp(4rem,min(32svh,calc((100vw - 2*var(--px) - 29rem)/3.3)),22rem)}.hero .loc{max-width:26rem}}
+
+/* 2 kolom: judul kiri, info (tagline, tombol, alamat) kanan. Dipakai di layar lebar DAN HP landscape.
+   Baris grid: 1fr (nyerap sisa tinggi) + 1 baris per judul, jadi "Seblak" dan "RA" nggak pernah renggang.
+   .row nggak boleh wrap (kalau wrap, kolom kanan melebar dan judul kegencet) dan .loc nggak boleh flex-basis:100% (di kolom = tinggi 100%, boxnya melar). */
+@media (min-width:1024px),(orientation:landscape) and (min-width:560px) and (max-height:600px){
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) var(--c2);grid-template-rows:1fr auto auto;column-gap:var(--gap)}
+  .hero h1{grid-column:1;grid-row:2;font-size:clamp(4rem,min(32vh,calc((100vw - 2*var(--px) - var(--c2) - var(--gap))/3.3)),22rem);font-size:clamp(4rem,min(32svh,calc((100vw - 2*var(--px) - var(--c2) - var(--gap))/3.3)),22rem)}
+  .hero h1.sub{grid-row:3}
+  .hero .row{grid-column:2;grid-row:1/-1;flex-direction:column;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-end;margin:0 0 1rem}
+  .hero p{text-wrap:balance}
+  .hero .loc{flex:none;max-width:100%}
+}
+
+/* HP landscape (layar pendek): dipadatkan supaya judul + info + alamat muat dalam satu layar */
+@media (orientation:landscape) and (min-width:560px) and (max-height:600px){
+  .hero{--c2:clamp(15rem,46vw,26rem);--gap:clamp(1.25rem,4vw,3rem);padding-top:calc(4.9rem + env(safe-area-inset-top,0px));padding-bottom:clamp(1rem,5vh,1.75rem);padding-bottom:clamp(1rem,5svh,1.75rem)}
+  .hero h1{font-size:clamp(3rem,min(31vh,calc((100vw - 2*var(--px) - var(--c2) - var(--gap))/3.3)),22rem);font-size:clamp(3rem,min(31svh,calc((100vw - 2*var(--px) - var(--c2) - var(--gap))/3.3)),22rem)}
+  .hero .row{gap:.7rem;margin-bottom:clamp(.4rem,5.4vh,1.6rem);margin-bottom:clamp(.4rem,5.4svh,1.6rem)}
+  .hero p{max-width:none;font-size:1rem}
+  .hero .btn{padding:.7rem 1.3rem}
+  .hero .loc{font-size:.9rem;padding:.65rem .85rem;border-radius:.9rem}
+}
+
+/* HP landscape paling pendek (<=360px): sedikit lebih rapat lagi biar kolom kanan nggak lebih tinggi dari judul */
+@media (orientation:landscape) and (min-width:560px) and (max-height:360px){
+  .hero .row{gap:.55rem}
+  .hero p{font-size:.95rem}
+  .hero .btn{padding:.6rem 1.2rem}
+  .hero .loc{font-size:.85rem;padding:.55rem .8rem}
+}

@@ -18,6 +18,7 @@ Pakai ES modules, jadi harus lewat server (Cloudflare Pages / tombol Run di Acod
 - Nomor WA / alamat: `js/config.js`
 - Menu, harga, topping, level pedas: `js/data/*.js`
 - Warna & font: `css/tokens.css`
+- Tata letak hero (2 kolom di layar lebar & HP landscape): `css/hero.css`. Box alamat: `css/loc.css`
 - Isi pesan WhatsApp: `buildMessage()` di `js/services/whatsapp.js`
 - Matiin anti-copy: hapus `initAntiCopy()` di `js/main.js`
 
