@@ -1,6 +1,7 @@
 import { initScroll } from "./scroll.js";
 import { initReveal } from "./reveal.js";
 import { initMarquee } from "./marquee.js";
+import { initBg } from "./bg.js";
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -8,5 +9,5 @@ const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 export function initMotion(){
   if (!window.gsap || !window.ScrollTrigger || reduceMotion) return;
   gsap.registerPlugin(ScrollTrigger);
-  initScroll(); initReveal(); initMarquee();   // urutan penting: marquee butuh instance Lenis
+  initScroll(); initReveal(); initMarquee(); initBg();   // urutan penting: marquee butuh instance Lenis, bg paling akhir
 }

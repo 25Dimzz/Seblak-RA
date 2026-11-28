@@ -11,7 +11,7 @@ Pakai ES modules, jadi harus lewat server (Cloudflare Pages / tombol Run di Acod
 - `js/core/`  `bus.js` (event), `state.js` (data), `cart.js` (logika keranjang)
 - `js/services/whatsapp.js`  susun isi pesan & buka WhatsApp
 - `js/ui/`  1 modul per komponen: page, menu, level, sheet, cart, bar
-- `js/fx/`  efek & animasi: motion, scroll, reveal, marquee, fit-hero, anti-copy
+- `js/fx/`  efek & animasi: motion, scroll, reveal, marquee, bg, fit-hero, anti-copy
 - `js/main.js`  pintu masuk
 
 ## Mau ubah apa?
@@ -20,6 +20,7 @@ Pakai ES modules, jadi harus lewat server (Cloudflare Pages / tombol Run di Acod
 - Warna & font: `css/tokens.css`
 - Tata letak hero (2 kolom di layar lebar & HP landscape): `css/hero.css`. Box alamat: `css/loc.css`
 - Isi pesan WhatsApp: `buildMessage()` di `js/services/whatsapp.js`
+- Animasi background (cabai, krupuk, daun, gelembung yang melayang): daftar bentuk & posisi di `PLAN` dalam `js/fx/bg.js`, warna per section di `css/bg.css`. Matiin: hapus `initBg()` di `js/fx/motion.js`
 - Matiin anti-copy: hapus `initAntiCopy()` di `js/main.js`
 
 ## Aturan main

@@ -1,0 +1,14 @@
+/* bg: dekorasi latar yang bergerak (dibuat & digerakkan js/fx/bg.js). Ganti warna lewat --fx / --fx2 per section */
+.hero{position:relative}
+.hero,section{isolation:isolate}
+.bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;contain:layout paint;--fx:var(--krupuk);--fx2:var(--tua)}
+.about .bg,.cara .bg{--fx:var(--kuah);--fx2:var(--daun)}
+.level .bg{--fx:var(--krupuk);--fx2:var(--putih)}
+.menu .bg{--fx:var(--kuah);--fx2:var(--krupuk)}
+.fxs{position:absolute;width:0;height:0}
+.fx{position:absolute;width:var(--s);aspect-ratio:1}
+.fe{display:block;width:100%;height:100%;opacity:0}
+.fi{display:block;width:100%;height:100%;color:var(--fx);fill:currentColor;opacity:var(--o)}
+.c2 .fi{color:var(--fx2)}
+.gl{border-radius:50%;background:radial-gradient(closest-side,currentColor,transparent)}
+.on .fe,.on .fi{will-change:transform}
