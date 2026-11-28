@@ -52,7 +52,7 @@
 <h2 data-split='1'>Menu hari ini</h2>
 <p class='note' data-fade='1'><b>Info COD:</b> bayar di tempat (COD) hanya untuk daerah Rantau Sialang. Di luar daerah itu, pesanan COD tidak diterima.</p>
 <div class='grid' id='grid'></div>
-<div class='cartbox' id='cartBox' hidden><h3>Pesanan kamu</h3><ul id='cart'></ul></div>
+<div class='cartbox' id='cartBox' hidden><h3>Pesanan kamu</h3><ul id='cart'></ul><button class='btn full' id='cartWa' type='button'><span>Pesan via WhatsApp</span><span id='cartSum'></span></button></div>
 </section>
 
 <section class='cara'>
@@ -80,8 +80,9 @@
 <p class='vl' id='tl' hidden>Topping tambahan (opsional)</p>
 <div class='tops' id='tops'></div>
 <div class='dq'><span>Jumlah porsi</span><div class='qty'><button id='qm' type='button' aria-label='Kurangi porsi'>−</button><output id='qv'>1</output><button id='qp' type='button' aria-label='Tambah porsi'>+</button></div></div>
-<button class='btn full' id='add' type='button'><span>Tambah ke pesanan</span><span id='sp'></span></button>
-<button class='btn alt full' id='addwa' type='button'><span>Langsung pesan via WhatsApp</span></button>
+<p class='mn' id='min' aria-live='polite' hidden></p>
+<button class='btn full' id='add' type='button' aria-describedby='min'><span>Tambah ke pesanan</span><span id='sp'></span></button>
+<button class='btn alt full' id='addwa' type='button' aria-describedby='min'><span>Langsung pesan via WhatsApp</span></button>
 </div></dialog>
 
 <script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>

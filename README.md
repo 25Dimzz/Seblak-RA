@@ -6,7 +6,7 @@ Pakai ES modules, jadi harus lewat server (Cloudflare Pages / tombol Run di Acod
 ## Struktur
 - `index.html`  kerangka halaman (markup, link CSS, CDN GSAP/Lenis)
 - `css/`  1 file per komponen. Urutan `<link>` di index.html penting (base dulu, komponen setelahnya)
-- `js/config.js`  nomor WhatsApp & alamat
+- `js/config.js`  nomor WhatsApp, alamat & minimal pesan
 - `js/data/`  `menu.js`, `toppings.js`, `levels.js`
 - `js/core/`  `bus.js` (event), `state.js` (data), `cart.js` (logika keranjang)
 - `js/services/whatsapp.js`  susun isi pesan & buka WhatsApp
@@ -16,6 +16,7 @@ Pakai ES modules, jadi harus lewat server (Cloudflare Pages / tombol Run di Acod
 
 ## Mau ubah apa?
 - Nomor WA / alamat: `js/config.js`
+- Minimal pesan per porsi (sekarang Rp5.000): `MIN_ORDER` di `js/config.js`. Selama harga per porsi (menu + topping) di bawah angka itu, tombol tambah & pesan di popup mati
 - Menu, harga, topping, level pedas: `js/data/*.js`
 - Warna & font: `css/tokens.css`
 - Tata letak hero (2 kolom di layar lebar & HP landscape): `css/hero.css`. Box alamat: `css/loc.css`

@@ -5,6 +5,7 @@ import { TOPPINGS } from "../data/toppings.js";
 import { addLine } from "../core/cart.js";
 import { on, emit } from "../core/bus.js";
 import { openWA } from "../services/whatsapp.js";
+import { MIN_ORDER } from "../config.js";
 
 const dlg = $("#dlg");
 let cur = 0, q = 1, tc = [];   // menu terpilih, jumlah porsi, jumlah tiap topping
@@ -14,18 +15,22 @@ const sum = a => a.reduce((s, t) => s + t.p * t.c, 0);
 const label = x => `${x.n} x${x.c}`;
 const base = () => { const m = MENU[cur], r = $("#vars input:checked"); return m.v ? m.v[r ? +r.value : 0] : [m.n, m.b || 0]; };
 
+const total = () => base()[1] + sum(picked());   // harga per porsi
+
 function renderPrice(){
-  const price = base()[1] + sum(picked());
+  const p = total(), short = MIN_ORDER - p, hint = $("#min");
   $("#qv").textContent = q;
-  $("#sp").textContent = rp(price * q);
-  $("#add").disabled = $("#addwa").disabled = !price;
+  $("#sp").textContent = rp(p * q);
+  $("#add").disabled = $("#addwa").disabled = short > 0;
+  hint.hidden = short <= 0;
+  if (short > 0) hint.textContent = `Minimal ${rp(MIN_ORDER)} per porsi. Tambah topping, kurang ${rp(short)} lagi.`;
 }
 
 function openSheet(i){
   cur = i; q = 1; tc = TOPPINGS.map(() => 0);
   const m = MENU[i], hasBase = m.v || m.b;
   $("#dt").textContent = m.n;
-  $("#dp").textContent = hasBase ? "Topping tambahan boleh dikosongkan, jumlahnya bisa diatur pakai + dan −. Harga dihitung dari harga menu ditambah topping." : "Pilih topping sesukamu, jumlahnya bisa diatur pakai + dan −. Harga dihitung dari topping yang dipilih.";
+  $("#dp").textContent = hasBase ? "Topping tambahan boleh dikosongkan, jumlahnya bisa diatur pakai + dan −. Harga dihitung dari harga menu ditambah topping." : `Pilih topping sesukamu, jumlahnya bisa diatur pakai + dan −. Harga dihitung dari topping yang dipilih, minimal ${rp(MIN_ORDER)} per porsi.`;
   $("#varBox").hidden = !m.v; $("#tl").hidden = !hasBase;
   $("#vars").innerHTML = (m.v || []).map((v, k) =>
     `<label class="tp"><input type="radio" name="var" value="${k}"${k ? "" : " checked"}><span>${v[0]}<em>${rp(v[1])}</em></span></label>`).join("");
@@ -35,9 +40,11 @@ function openSheet(i){
 }
 
 function addCurrent(){
+  if (total() < MIN_ORDER) return false;
   const t = picked(), [name, price] = base();
   addLine({ key: `${cur}|${name}|${t.map(label).join(",")}`, n: name, t: t.map(label), u: price + sum(t), q });
   dlg.close();
+  return true;
 }
 
 /** popup pilih variasi, topping, jumlah porsi */
@@ -61,7 +68,7 @@ export function initSheet(){
   $("#qp").onclick = () => { q++; renderPrice(); };
   $("#dx").onclick = () => dlg.close();
   $("#add").onclick = addCurrent;
-  $("#addwa").onclick = () => { addCurrent(); openWA(); };
+  $("#addwa").onclick = () => { if (addCurrent()) openWA(); };
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener("close", () => emit("sheet:close"));
 }

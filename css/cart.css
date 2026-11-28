@@ -8,3 +8,5 @@
 .cr{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;font:800 1.1rem var(--d);white-space:nowrap}
 .cl>div:first-child{min-width:0;overflow-wrap:anywhere}
 @media(max-width:380px){.cl{padding:.9rem 1rem}}
+#cartWa{margin-top:1rem;background:var(--daun)}
+#cartWa:hover{background:#245f3c}

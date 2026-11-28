@@ -2,8 +2,9 @@ import { $ } from "../lib/dom.js";
 import { rp } from "../lib/format.js";
 import { MENU } from "../data/menu.js";
 import { emit } from "../core/bus.js";
+import { MIN_ORDER } from "../config.js";
 
-const priceLabel = m => m.v ? m.v.map(x => `${x[0]} ${rp(x[1])}`).join(" · ") : m.b ? rp(m.b) : "";
+const priceLabel = m => m.v ? m.v.map(x => `${x[0]} ${rp(x[1])}`).join(" · ") : m.b ? rp(m.b) : `Minimal ${rp(MIN_ORDER)}`;
 
 /** kartu menu; klik tombol memicu event "menu:pick" (didengar sheet.js) */
 export function initMenu(){
